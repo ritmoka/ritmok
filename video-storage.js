@@ -16,6 +16,7 @@
 
   if (!form || !fileInput) return;
 
+  const storageRoot = "sb_publishable_MDrdfXwCzFYstjWo_k4gLQ_0MxL8Dv7";
   const moduleFolders = {
     "sertanejo": "sertanejo",
     "vanera-universitaria": "vanera-universitaria",
@@ -100,7 +101,7 @@
 
     const folder = moduleFolders[moduleId] || moduleId;
     const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-");
-    const storagePath = `videos/${user.uid}/${folder}/${Date.now()}-${safeName}`;
+    const storagePath = `${storageRoot}/${user.uid}/${folder}/${Date.now()}-${safeName}`;
     const storageRef = services.storage.ref(storagePath);
     const databaseRef = services.database.ref(`lessons/${user.uid}`).push();
 

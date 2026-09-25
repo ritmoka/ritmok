@@ -94,13 +94,15 @@ Se você usar um domínio próprio, substitua `ritmok.vercel.app` pelo domínio 
 
 # Configurar o Firebase
 
-A configuração Web já está no arquivo:
+O novo diretório raiz do Firebase Storage é:
 
 ```text
-firebase-config.js
+sb_publishable_MDrdfXwCzFYstjWo_k4gLQ_0MxL8Dv7
 ```
 
-Esse arquivo pode ser publicado no site. Ele contém identificadores públicos do aplicativo, não uma chave privada.
+Os vídeos são enviados para dentro desse diretório, separados por usuário e módulo.
+
+A configuração Web do Firebase está no arquivo `firebase-config.js` e pode ser publicada no site: ela contém identificadores públicos do aplicativo, não uma chave privada.
 
 ## Authentication
 
@@ -173,8 +175,8 @@ storage.rules
 Os vídeos são enviados para caminhos separados por módulo:
 
 ```text
-videos/{uid}/sertanejo/
-videos/{uid}/vanera-universitaria/
+sb_publishable_MDrdfXwCzFYstjWo_k4gLQ_0MxL8Dv7/{uid}/sertanejo/
+sb_publishable_MDrdfXwCzFYstjWo_k4gLQ_0MxL8Dv7/{uid}/vanera-universitaria/
 ```
 
 Aceitamos:
