@@ -1,0 +1,22 @@
+# Firebase service-account credentials (never commit)
+# Keep the downloaded Admin SDK private key out of GitHub.
+*-firebase-adminsdk-*.json
+*-firebase-adminsdk*.json
+firebase-service-account*.json
+*aula*firebase*adminsdk*.json
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Firebase emulator/local state
+.firebase/
+firebase-debug.log
+database-debug.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

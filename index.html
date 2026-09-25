@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090a0d" />
+    <meta
+      name="description"
+      content="Ritmo K — aulas de sertanejo e vanera universitária para dançar no seu ritmo."
+    />
+    <title>Ritmo K — sertanejo e vanera universitária</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-styles.css" />
+    <link rel="stylesheet" href="brand-styles.css" />
+    <link rel="stylesheet" href="pricing-styles.css" />
+    <link rel="stylesheet" href="video-storage.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#inicio" aria-label="Ritmo K — aula de sertanejo e vanera universitária">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-dot brand-dot-one"></span>
+            <span class="brand-dot brand-dot-two"></span>
+            <span class="brand-line"></span>
+          </span>
+          <span>ritmo<span class="brand-period">K</span></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a class="nav-link active" href="#inicio">Início</a>
+          <a class="nav-link" href="#aulas">Explorar</a>
+          <a class="nav-link" href="#plano">Plano anual</a>
+          <a class="nav-link" href="#trilhas">Módulos</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <label class="search-box" for="lesson-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.8"></circle>
+              <path d="m16.2 16.2 4.2 4.2"></path>
+            </svg>
+            <input
+              id="lesson-search"
+              type="search"
+              placeholder="Buscar aulas, estilos..."
+              autocomplete="off"
+            />
+            <kbd>/</kbd>
+          </label>
+          <button class="icon-button notification-button" type="button" aria-label="Notificações">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 9.8a6 6 0 0 0-12 0c0 7-2.7 7-2.7 8.6h17.4C20.7 16.8 18 16.8 18 9.8Z"></path>
+              <path d="M10 21h4"></path>
+            </svg>
+            <span class="notification-dot"></span>
+          </button>
+                  <a class="profile-button" href="login.html" data-account-link aria-label="Entrar ou criar conta">
+            <span class="avatar avatar-small">JP</span>
+            <span class="profile-label">Entrar</span>
+            <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"></path></svg>
+          </a>
+          <button class="mobile-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+        </div>
+
+        <div class="search-results" id="search-results" aria-live="polite"></div>
+      </header>
+
+      <main id="inicio">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="pulse-dot"></span> ESCOLA RITMO K · SERTANEO E VANERA UNIVERSITÁRIA</div>
+            <h1 id="hero-title">Seu corpo.<br /><em>Seu ritmo.</em></h1>
+            <p class="hero-description">
+              Aulas de sertanejo e vanera universitária para todos os corpos. Escolha um módulo, aprenda no seu ritmo e viva cada música com mais verdade.
+            </p>
+            <div class="hero-actions">
+              <button class="button button-primary" type="button" data-play="featured-1">
+                <span class="button-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6V6Z"></path></svg></span>
+                Começar módulo
+              </button>
+              <button class="button button-quiet" type="button" data-play="featured-2">
+                <span class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6V6Z"></path></svg></span>
+                Ver trailer
+              </button>
+            </div>
+            <div class="hero-proof">
+              <div class="avatar-stack" aria-hidden="true">
+                <span class="avatar avatar-1">AM</span>
+                <span class="avatar avatar-2">LS</span>
+                <span class="avatar avatar-3">RC</span>
+                <span class="avatar avatar-4">+</span>
+              </div>
+              <div><strong>+12 mil</strong><span>pessoas já encontraram seu ritmo</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1400&q=88"
+                alt="Bailarina em um estúdio de dança"
+              />
+              <div class="hero-image-overlay"></div>
+              <div class="hero-stamp"><span>MÓDULO 1</span><strong>SERT<br />NEO</strong><small>com João Ribeiro</small></div>
+              <div class="hero-caption">
+                <span class="caption-label">EM DESTAQUE</span>
+                <strong>Sertanejo do zero:<br />corpo, ritmo e presença</strong>
+                <span class="caption-meta">Sertanejo · 28 min</span>
+              </div>
+            </div>
+            <div class="visual-note visual-note-top"><span class="note-line"></span> seu tempo, seu jeito</div>
+            <div class="visual-note visual-note-bottom"><span class="note-number">01</span> solte o corpo</div>
+          </div>
+        </section>
+
+        <section class="quick-strip" aria-label="Benefícios da escola Ritmo K">
+          <div class="quick-item"><span class="quick-icon quick-icon-coral">✦</span><span><strong>Para todos os corpos</strong><small>sem comparación, sem julgamento</small></span></div>
+          <div class="quick-item"><span class="quick-icon quick-icon-lime">◷</span><span><strong>No seu ritmo</strong><small>pausar, repetir e respirar</small></span></div>
+          <div class="quick-item"><span class="quick-icon quick-icon-purple">⌁</span><span><strong>Progresso real</strong><small>pequenas vitórias, todos os dias</small></span></div>
+          <div class="quick-item quick-item-link" data-scroll="#trilhas"><span class="quick-icon quick-icon-blue">→</span><span><strong>Ver os dois módulos</strong><small>veja o que combina com você</small></span></div>
+        </section>
+
+        <section class="pricing-section" id="plano" aria-labelledby="plan-title">
+          <div class="pricing-copy">
+            <span class="section-kicker">ACESSO COMPLETO</span>
+            <h2 id="plan-title">Um ano inteiro<br /><em>para dançar.</em></h2>
+            <p>Assine o plano anual da Ritmo K e libere todas as aulas dos dois módulos, com progresso salvo e novos passos por 12 meses.</p>
+            <div class="pricing-points"><span><b>✓</b> Todos os módulos</span><span><b>✓</b> Acesso por 12 meses</span><span><b>✓</b> Sem mensalidade</span></div>
+          </div>
+          <div class="pricing-card">
+            <span class="pricing-badge">PLANO ANUAL</span>
+            <span class="pricing-label">Acesso à Ritmo K</span>
+            <div class="pricing-price"><span>R$</span><strong>129</strong><sup>,99</sup><small>/ano</small></div>
+            <p>Uma única assinatura para assistir às aulas de Sertanejo e Vanera Universitária.</p>
+            <button class="button button-primary" type="button" id="subscribe-plan">Assinar por R$ 129,99 <span>→</span></button>
+            <small>Pagamento seguro · cancele quando quiser</small>
+          </div>
+        </section>
+
+        <section class="content-section continue-section" id="progresso" aria-labelledby="continue-title">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">SEU ESPAÇO</span>
+              <h2 id="continue-title">Continue de onde parou <span class="heading-spark">↗</span></h2>
+            </div>
+            <button class="text-button" type="button" data-scroll="#aulas">Ver todo o progresso <span>→</span></button>
+          </div>
+          <div class="continue-grid" id="continue-grid"></div>
+        </section>
+
+        <section class="content-section" id="aulas" aria-labelledby="explore-title">
+          <div class="section-heading section-heading-explore">
+            <div>
+              <span class="section-kicker">ESCOLHA O TEU RITMO</span>
+              <h2 id="explore-title">Dois módulos. Duas maneiras de dançar.</h2>
+            </div>
+            <div class="carousel-controls" aria-label="Controles do carrossel">
+              <button type="button" class="round-control" data-scroll-row="#style-row" data-direction="-1" aria-label="Anterior">←</button>
+              <button type="button" class="round-control" data-scroll-row="#style-row" data-direction="1" aria-label="Próximo">→</button>
+            </div>
+          </div>
+          <div class="filter-tabs" role="tablist" aria-label="Filtrar por estilo">
+            <button class="filter-tab active" type="button" data-filter="Todos" role="tab" aria-selected="true">Todos</button>
+            <button class="filter-tab" type="button" data-filter="Sertanejo" role="tab" aria-selected="false">Sertanejo</button>
+            <button class="filter-tab" type="button" data-filter="Vanera Universitária" role="tab" aria-selected="false">Vanera Universitária</button>
+          </div>
+          <div class="style-row horizontal-row" id="style-row"></div>
+        </section>
+
+        <section class="content-section" aria-labelledby="popular-title">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">MAIS DESDEJADOS AGORA</span>
+              <h2 id="popular-title">Aulas que fazem o corpo responder <span class="fire">✦</span></h2>
+            </div>
+            <button class="text-button" type="button" data-filter-focus="Todos">Explorar aulas <span>→</span></button>
+          </div>
+          <div class="featured-grid" id="featured-grid"></div>
+        </section>
+
+        <section class="content-section trails-section" id="trilhas" aria-labelledby="trails-title">
+          <div class="trails-heading">
+            <div>
+              <span class="section-kicker">UM PASSO DE CADA VEZ</span>
+              <h2 id="trails-title">Escolha seu módulo<br /><em>e encontre o ritmo.</em></h2>
+            </div>
+            <p>Escolha entre os módulos de Sertanejo e Vanera Universitária. Cada aula foi pensada para você aprender sem pressa e dançar com vontade.</p>
+          </div>
+          <div class="trail-list" id="trail-list"></div>
+        </section>
+
+        <section class="upload-banner" aria-labelledby="upload-title">
+          <div class="upload-decoration upload-decoration-one"></div>
+          <div class="upload-decoration upload-decoration-two"></div>
+          <div class="upload-copy">
+            <span class="section-kicker">RITMO K · AULA DE SERTANEO E VANERA UNIVERSITÁRIA</span>
+            <h2 id="upload-title">Escolha uma aula.<br /><em>Comece hoje.</em></h2>
+            <p>Uma plataforma de aulas para você dançar sertanejo e vanera universitária no seu próprio tempo.</p>
+          </div>
+          <button class="button button-dark" type="button" id="open-upload" aria-label="Enviar uma aula para a escola Ritmo K">
+            <span class="upload-plus">+</span> Enviar uma aula para a Ritmo K
+          </button>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><span class="brand-dot brand-dot-one"></span><span class="brand-dot brand-dot-two"></span><span class="brand-line"></span></span><span>ritmo<span class="brand-period">K</span></span></a>
+        <span class="footer-copy">feito para dançar sertanejo e vanera universitária.</span>
+        <div class="footer-links"><a href="#aulas">Aulas</a><a href="#trilhas">Módulos</a><a href="#inicio">Sobre nós</a><a href="#inicio">Ajuda</a></div>
+        <span class="footer-year">© 2024 Ritmo K.</span>
+      </footer>
+    </div>
+
+    <div class="modal-backdrop" id="player-modal" aria-hidden="true">
+      <div class="player-modal" role="dialog" aria-modal="true" aria-labelledby="player-title">
+        <button class="modal-close" type="button" aria-label="Fechar player">×</button>
+        <div class="player-frame">
+          <video id="lesson-video" controls playsinline preload="metadata" poster="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1200&q=85"></video>
+          <div class="video-fallback"><span class="fallback-play">▶</span><span>Prévia da aula</span></div>
+        </div>
+        <div class="player-info">
+          <div>
+            <span class="section-kicker" id="player-style">SERTANEO · INICIANTE</span>
+            <h2 id="player-title">Sertanejo do zero: corpo, ritmo e presença</h2>
+            <p id="player-description">Aprenda a base do sertanejo com uma aula leve, prática e cheia de vontade.</p>
+          </div>
+          <div class="player-instructor"><span class="avatar avatar-instructor" id="player-avatar">JR</span><span><small>com</small><strong id="player-instructor">João Ribeiro</strong></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="auth-modal" aria-hidden="true">
+      <div class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+        <button class="modal-close" type="button" aria-label="Fechar login" data-close-auth>×</button>
+        <div class="auth-layout">
+          <div class="auth-aside">
+            <a class="brand auth-brand" href="#inicio" aria-label="Ritmo K — aula de sertanejo e vanera universitária">
+              <span class="brand-mark" aria-hidden="true"><span class="brand-dot brand-dot-one"></span><span class="brand-dot brand-dot-two"></span><span class="brand-line"></span></span>
+              <span>ritmo<span class="brand-period">K</span></span>
+            </a>
+            <div class="auth-aside-copy">
+              <span class="section-kicker">ENTRE NO RITMO</span>
+              <h2>Seu corpo já<br /><em>sabe o caminho.</em></h2>
+              <p>Crie sua conta para salvar aulas, acompanhar seu progresso e continuar dançando de onde parou.</p>
+            </div>
+            <div class="auth-aside-footer"><span class="auth-aside-dot"></span> uma comunidade para mover junto</div>
+          </div>
+          <div class="auth-panel">
+            <div class="auth-heading">
+              <span class="section-kicker">BEM-VINDA(O)</span>
+              <h2 id="auth-title">Entre na sua conta</h2>
+              <p>Escolha como você quer continuar.</p>
+            </div>
+            <div class="auth-tabs" role="tablist" aria-label="Escolha entre entrar ou criar conta">
+              <button class="auth-tab active" type="button" role="tab" aria-selected="true" data-auth-tab="login">Entrar</button>
+              <button class="auth-tab" type="button" role="tab" aria-selected="false" data-auth-tab="register">Criar conta</button>
+            </div>
+            <div class="auth-message" id="auth-message" role="status" aria-live="polite" hidden></div>
+            <div class="auth-panel-content" id="login-panel">
+              <button class="google-button" type="button" id="google-login">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.72-.06-1.41-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-1.99 3.02v2.5h3.22c1.88-1.73 2.99-4.28 2.99-7.37Z"></path><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.61-2.4l-3.22-2.5c-.9.6-2.05.96-3.39.96-2.61 0-4.82-1.76-5.61-4.13H3.06v2.58A10 10 0 0 0 12 22Z"></path><path fill="#FBBC05" d="M6.39 13.93A6 6 0 0 1 6.08 12c0-.67.12-1.32.31-1.93V7.49H3.06A10 10 0 0 0 2 12c0 1.61.38 3.14 1.06 4.51l3.33-2.58Z"></path><path fill="#EA4335" d="M12 5.94c1.47 0 2.79.5 3.83 1.49l2.87-2.87C16.95 2.96 14.7 2 12 2a10 10 0 0 0-8.94 5.49l3.33 2.58C7.18 7.7 9.39 5.94 12 5.94Z"></path></svg>
+                Continuar com Google
+              </button>
+              <div class="auth-divider"><span>ou continue com e-mail</span></div>
+              <form id="login-form" class="auth-form">
+                <label><span>E-mail</span><input type="email" name="email" placeholder="voce@email.com" autocomplete="email" required /></label>
+                <label><span>Senha</span><input type="password" name="password" placeholder="Sua senha" autocomplete="current-password" minlength="6" required /></label>
+                <button class="button button-primary full-button" type="submit" data-auth-submit>Entrar <span>→</span></button>
+              </form>
+              <p class="auth-switch">Ainda não tem uma conta? <button type="button" data-auth-tab="register">Criar agora</button></p>
+            </div>
+            <div class="auth-panel-content" id="register-panel" hidden>
+              <button class="google-button" type="button" id="google-register">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.72-.06-1.41-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-1.99 3.02v2.5h3.22c1.88-1.73 2.99-4.28 2.99-7.37Z"></path><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.61-2.4l-3.22-2.5c-.9.6-2.05.96-3.39.96-2.61 0-4.82-1.76-5.61-4.13H3.06v2.58A10 10 0 0 0 12 22Z"></path><path fill="#FBBC05" d="M6.39 13.93A6 6 0 0 1 6.08 12c0-.67.12-1.32.31-1.93V7.49H3.06A10 10 0 0 0 2 12c0 1.61.38 3.14 1.06 4.51l3.33-2.58Z"></path><path fill="#EA4335" d="M12 5.94c1.47 0 2.79.5 3.83 1.49l2.87-2.87C16.95 2.96 14.7 2 12 2a10 10 0 0 0-8.94 5.49l3.33 2.58C7.18 7.7 9.39 5.94 12 5.94Z"></path></svg>
+                Cadastrar com Google
+              </button>
+              <div class="auth-divider"><span>ou cadastre-se com e-mail</span></div>
+              <form id="register-form" class="auth-form">
+                <label><span>Como podemos te chamar?</span><input type="text" name="name" placeholder="Seu nome" autocomplete="name" required /></label>
+                <label><span>E-mail</span><input type="email" name="email" placeholder="voce@email.com" autocomplete="email" required /></label>
+                <label><span>Crie uma senha</span><input type="password" name="password" placeholder="mínimo de 6 caracteres" autocomplete="new-password" minlength="6" required /></label>
+                <button class="button button-primary full-button" type="submit" data-auth-submit>Criar minha conta <span>→</span></button>
+              </form>
+              <p class="auth-switch">Já tem uma conta? <button type="button" data-auth-tab="login">Entrar</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="upload-modal" aria-hidden="true">
+      <div class="upload-modal" role="dialog" aria-modal="true" aria-labelledby="upload-modal-title">
+        <button class="modal-close" type="button" aria-label="Fechar envio">×</button>
+        <span class="section-kicker">ESCOLA RITMO K</span>
+        <h2 id="upload-modal-title">Compartilhe seu movimento.</h2>
+        <p>Envie um vídeo e ajude alguém a encontrar mais vontade de dançar.</p>
+        <form id="upload-form">
+          <label class="file-drop" for="video-upload">
+            <span class="upload-plus large">+</span>
+            <strong>Escolha um vídeo</strong>
+            <small>MP4, MOV ou WebM · até 2 GB</small>
+            <input id="video-upload" type="file" accept="video/mp4,video/quicktime,video/webm,video/*" />
+          </label>
+          <div class="form-row">
+            <label><span>Módulo</span><select id="video-module" required><option value="sertanejo">Módulo 1 · Sertanejo</option><option value="vanera-universitaria">Módulo 2 · Vanera Universitária</option></select></label>
+            <label><span>Nome da aula</span><input id="video-title" type="text" placeholder="Ex. Aula 01 · Postura" required /></label>
+          </div>
+          <div class="form-row">
+            <label><span>Professor(a)</span><input id="video-instructor" type="text" placeholder="Nome do professor(a)" /></label>
+            <label><span>Descrição</span><input id="video-description" type="text" placeholder="Sobre o que é esta aula?" /></label>
+          </div>
+          <div class="upload-progress" hidden><div class="upload-progress-track"><span id="upload-progress-bar"></span></div><small id="upload-progress-text">Preparando upload...</small></div>
+          <button class="button button-primary full-button" type="submit" id="upload-submit">Enviar vídeo <span>→</span></button>
+        </form>
+        <div class="upload-success" id="upload-success" hidden>
+          <span class="success-check">✓</span>
+          <strong>Vídeo enviado com sucesso!</strong>
+          <p>A aula foi adicionada ao módulo selecionado na Ritmo K.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+    <script src="video-storage.js"></script>
+    <script src="auth.js"></script>
+    <script>
+      if (window.movaAuth?.isReady && window.movaAuth.isReady()) {
+        document.body.dataset.authScript = "ready";
+      }
+    </script>
+  </body>
+</html>

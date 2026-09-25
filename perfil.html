@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090a0d" />
+    <title>Meu perfil — Ritmo K</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-styles.css" />
+    <link rel="stylesheet" href="profile-styles.css" />
+    <link rel="stylesheet" href="brand-styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js"></script>
+  </head>
+  <body class="profile-page-body">
+    <div class="profile-page-shell">
+      <header class="profile-header">
+        <a class="brand" href="index.html" aria-label="Voltar para a página inicial da Ritmo K"><span class="brand-mark" aria-hidden="true"><span class="brand-dot brand-dot-one"></span><span class="brand-dot brand-dot-two"></span><span class="brand-line"></span></span><span>ritmo<span class="brand-period">K</span></span></a>
+        <a class="back-home" href="index.html"><span>←</span> Voltar para as aulas</a>
+      </header>
+      <main class="profile-main" id="profile-main">
+        <section class="profile-hero">
+          <div class="profile-avatar avatar" id="profile-avatar">?</div>
+          <div class="profile-hero-copy"><span class="section-kicker">SEU ESPAÇO NA RITMO K</span><h1 id="profile-name">Bem-vinda(o)</h1><p id="profile-email">Carregando sua conta...</p></div>
+          <span class="profile-status"><i></i> Conta ativa</span>
+        </section>
+        <section class="profile-grid">
+          <article class="profile-stat profile-stat-coral"><span class="profile-stat-icon">✦</span><strong id="stat-lessons">0</strong><small>aulas concluídas</small><div class="profile-stat-line"><span style="width: 0%"></span></div></article>
+          <article class="profile-stat profile-stat-lime"><span class="profile-stat-icon">◷</span><strong id="stat-minutes">0</strong><small>minutos dançando</small><div class="profile-stat-line"><span style="width: 0%"></span></div></article>
+          <article class="profile-stat profile-stat-purple"><span class="profile-stat-icon">⌁</span><strong id="stat-streak">0</strong><small>dias de ritmo</small><div class="profile-stat-line"><span style="width: 0%"></span></div></article>
+        </section>
+        <section class="profile-content-grid">
+          <article class="profile-panel profile-progress-panel"><div class="profile-panel-heading"><div><span class="section-kicker">SUA JORNADA</span><h2>Continue dançando</h2></div><span class="profile-panel-mark">↗</span></div><div class="profile-course"><div class="profile-course-image"><img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?auto=format&fit=crop&w=500&q=80" alt="Aula de vanera universitária" /></div><div><span class="profile-course-tag">VANERA UNIVERSITÁRIA · INICIANTE</span><h3>Vanera universitária: postura e condução</h3><p>Continue de onde parou · 16 min</p><div class="profile-progress"><span style="width: 18%"></span></div><small>18% concluído</small></div></div><a class="button button-primary" href="index.html#progresso">Continuar aula <span>→</span></a></article>
+          <article class="profile-panel profile-details-panel"><div class="profile-panel-heading"><div><span class="section-kicker">MEUS DADOS</span><h2>Seu perfil</h2></div></div><div class="profile-detail-row"><span>Conta</span><strong id="detail-provider">Google ou e-mail</strong></div><div class="profile-detail-row"><span>Membro desde</span><strong id="detail-created">Hoje</strong></div><button class="logout-button" type="button" id="logout-button">Sair da conta <span>↗</span></button></article>
+        </section>
+        <section class="profile-tip"><span>✦</span><p><strong>Um lembrete:</strong> dançar por cinco minutos já é uma vitória. O resto do movimento vem com o tempo.</p></section>
+      </main>
+      <footer class="profile-footer"><span>© 2024 Ritmo K.</span><a href="index.html#aulas">Voltar para o catálogo</a></footer>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

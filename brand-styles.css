@@ -1,0 +1,63 @@
+/* Brand Ritmo K: substitui a identidade visual anterior. */
+.brand {
+  letter-spacing: -2px;
+}
+
+.brand-period {
+  color: var(--lime);
+}
+
+.brand-dot-one {
+  background: var(--coral);
+}
+
+.brand-dot-two {
+  background: var(--lime);
+}
+
+.eyebrow,
+.section-kicker {
+  color: var(--lime);
+}
+
+.button-primary,
+.card-hover-play,
+.style-card-coral {
+  background: var(--lime);
+}
+
+.button-primary {
+  color: #1b1715;
+}
+
+.button-primary:hover {
+  background: #e4f78a;
+}
+
+.text-button span,
+.heading-spark,
+.fire,
+.quick-icon-coral,
+.profile-course-tag,
+.logout-button,
+.back-home span {
+  color: var(--coral);
+}
+
+.hero h1 em,
+.trails-heading h2 em,
+.upload-copy h2 em,
+.auth-aside-copy h2 em {
+  color: var(--coral);
+}
+
+.hero-description + * {
+  --brand-accent: var(--lime);
+}
+
+.site-shell {
+  background:
+    radial-gradient(circle at 88% 4%, rgba(212, 239, 114, 0.1), transparent 24rem),
+    radial-gradient(circle at 8% 46%, rgba(255, 107, 85, 0.06), transparent 24rem),
+    var(--bg);
+}
